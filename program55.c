@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdbool.h>
+
+bool CheckPrime(int iNo)
+{
+    int icnt = 0, iFrequncy = 0;
+    if(iNo < 0)
+    {
+        iNo = -iNo;
+    }
+
+    for(icnt = 2; icnt <= (iNo /2); icnt++)
+    {
+        if(( iNo % icnt)== 0)
+        {
+            iFrequncy++;
+            break;          // Optimization
+        }
+        
+    }
+    if(iFrequncy == 0)      // No factors
+    {
+        return true;
+    }
+    else                    // Atleastt one factors
+    {
+        return false;
+    }
+}
+
+int main()
+{
+    int iValue = 0;
+    bool bRet = false;
+
+    printf("Enter the Number : \n");
+    scanf("%d",&iValue);
+
+    bRet = CheckPrime(iValue);
+
+    if(bRet == true)
+    {
+        printf("%d is Prime number\n",iValue);
+    }
+    else
+    {
+        printf("%d is Not a Prime number\n",iValue);
+    }
+    return 0;
+}
+
+/*
+    Time complexity : for prime - N/2
+    TIme Complexity : for non prime - either 1 or 2
+*/
