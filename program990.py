@@ -1,0 +1,97 @@
+# Done
+
+class Node:
+    def __init__(self, value):
+        self.data = value
+        self.next = None
+
+class SinglyLL:
+
+    # Done
+    def __init__(self):
+        self.first = None
+        self.iCount = 0
+
+    # Done
+    def InsertFirst(self,no):
+        newn = Node(no)
+
+        # LL is Empty
+        if self.first == None:
+            self.first = newn
+        # It Contains at least 1 node
+        else:
+            newn.next = self.first
+            self.first = newn
+
+        self.iCount = self.iCount + 1
+
+    # Done
+    def InsertLast(self,no):
+        newn = Node(no)
+
+        # LL is Empty
+        if self.first == None:
+            self.first = newn
+        # It Contains at least 1 node
+        else:
+            temp = self.first
+
+            while temp.next is not None:
+                temp = temp.next
+
+            temp.next = newn
+
+
+        self.iCount = self.iCount + 1
+
+    
+    def InsertAtPos(self, no, pos):
+        pass
+
+    def DeleteFirst(self):
+        pass
+
+    def DeleteLast(self):
+        pass
+
+    def DeleteAtPos(self, pos):
+        pass
+
+    # Done
+    def Count(self):
+        return self.iCount
+
+    # Done
+    def Display(self):
+        temp = self.first
+
+        while temp is not None:
+            print("| ",temp.data," |->",end=" ")
+            temp = temp.next
+
+        print("None")
+
+def main():
+    sobj = SinglyLL()
+
+    sobj.InsertFirst(101)
+    sobj.InsertFirst(51)
+    sobj.InsertFirst(21)
+    sobj.InsertFirst(11)
+
+    print("Elemets of LinkedList Are : ")
+    sobj.Display()
+
+    print("Number of Elements in LinkeList are : ",sobj.Count())
+
+    sobj.InsertLast(111)
+    sobj.InsertLast(121)
+    
+    print("Elemets of LinkedList Are : ")
+    sobj.Display()
+
+    print("Number of Elements in LinkeList are : ",sobj.Count())
+
+if __name__ == "__main__":
+    main()
